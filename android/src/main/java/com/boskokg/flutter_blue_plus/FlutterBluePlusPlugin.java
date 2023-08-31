@@ -601,13 +601,13 @@ public class FlutterBluePlusPlugin implements
                     }
 
                     // check mtu
-                    int mtu = mMtu.get(remoteId);
-                    if ((mtu-3) < hexToBytes(value).length) {
-                        String s = "data longer than mtu allows. dataLength: " +
-                            hexToBytes(value).length + "> max: " + (mtu-3);
-                        result.error("writeCharacteristic", s, null);
-                        break;
-                    }
+                    // int mtu = mMtu.get(remoteId);
+                    // if ((mtu-3) < hexToBytes(value).length) {
+                    //     String s = "data longer than mtu allows. dataLength: " +
+                    //         hexToBytes(value).length + "> max: " + (mtu-3);
+                    //     result.error("writeCharacteristic", s, null);
+                    //     break;
+                    // }
 
                     if (Build.VERSION.SDK_INT >= 33) { // Android 13 (August 2022)
 
@@ -715,13 +715,13 @@ public class FlutterBluePlusPlugin implements
                     }
 
                     // check mtu
-                    int mtu = mMtu.get(remoteId);
-                    if ((mtu-3) < hexToBytes(value).length) {
-                        String s = "data longer than mtu allows. dataLength: " +
-                            hexToBytes(value).length + "> max: " + (mtu-3);
-                        result.error("writeDescriptor", s, null);
-                        break;
-                    }
+                    // int mtu = mMtu.get(remoteId);
+                    // if ((mtu-3) < hexToBytes(value).length) {
+                    //     String s = "data longer than mtu allows. dataLength: " +
+                    //         hexToBytes(value).length + "> max: " + (mtu-3);
+                    //     result.error("writeDescriptor", s, null);
+                    //     break;
+                    // }
 
                     if (Build.VERSION.SDK_INT >= 33) { // Android 13 (August 2022)
 
@@ -1428,7 +1428,7 @@ public class FlutterBluePlusPlugin implements
                 mConnectedDevices.put(remoteId, gatt);
 
                 // default minimum mtu
-                mMtu.put(remoteId, 23); 
+                mMtu.put(remoteId, 512); 
             }
 
             // disconnected?
